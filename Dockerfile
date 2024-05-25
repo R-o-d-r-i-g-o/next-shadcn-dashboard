@@ -1,4 +1,4 @@
-FROM node:20.10-alpine AS build
+FROM node:20.10-alpine AS builder
 
 WORKDIR /app
 
@@ -8,7 +8,6 @@ RUN npm i -g pnpm \
     pnpm install  \
     pnpm build
 
-
 FROM node:20.10-alpine AS publish
 
 LABEL maintainer="rodrigo marques ribeiro <rodrigomarqribeiro@gmail.com>"
@@ -16,12 +15,14 @@ LABEL version="1.0"
 
 WORKDIR /app
 
-RUN npm i -g pnpm
+ENV NODE_ENV production
 
-COPY --from=build /app/.next ./.next
-COPY --from=build /app/node_modules ./node_modules
-COPY --from=build /app/package.json ./package.json
-COPY --from=build /app/public/ ./public
+COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/node_modules ./node_modules
+# COPY --from=builder /app/.next ./.next
+COPY .env ./
 
 EXPOSE 3000
 
