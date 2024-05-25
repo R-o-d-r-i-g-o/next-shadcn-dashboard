@@ -1,4 +1,5 @@
 'use client';
+
 import * as z from 'zod';
 import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -27,6 +28,7 @@ import {
 import { useToast } from '../ui/use-toast';
 import FileUpload from '../file-upload';
 
+export { IMG_MAX_LIMIT } from './schema';
 import { productFormSchema } from './schema';
 
 type ProductFormValues = z.infer<typeof productFormSchema>;
@@ -43,7 +45,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
   const params = useParams();
   const router = useRouter();
   const { toast } = useToast();
-  const [open, setOpen] = useState(false);
+  const [, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const title = initialData ? 'Edit product' : 'Create product';
   const description = initialData ? 'Edit a product.' : 'Add a new product';
@@ -80,18 +82,6 @@ export const ProductForm: React.FC<ProductFormProps> = ({
       });
     } finally {
       setLoading(false);
-    }
-  };
-
-  const onDelete = async () => {
-    try {
-      setLoading(true);
-      router.refresh();
-      router.push(`/${params.storeId}/products`);
-    } catch (error: any) {
-    } finally {
-      setLoading(false);
-      setOpen(false);
     }
   };
 

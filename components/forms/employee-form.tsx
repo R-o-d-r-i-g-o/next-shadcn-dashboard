@@ -1,4 +1,5 @@
 'use client';
+
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -42,7 +43,7 @@ export const EmployeeForm: React.FC<ProductFormProps> = ({
 }) => {
   const router = useRouter();
   const { toast } = useToast();
-  const [open, setOpen] = useState(false);
+  const [, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const title = initialData ? 'Edit product' : 'Create product';
   const description = initialData ? 'Edit a product.' : 'Add a new product';

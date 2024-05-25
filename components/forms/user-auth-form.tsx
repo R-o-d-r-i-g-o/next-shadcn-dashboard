@@ -1,4 +1,5 @@
 'use client';
+
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -23,7 +24,6 @@ type UserFormValue = z.infer<typeof userFormSchema>;
 
 export default function UserAuthForm() {
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get('callbackUrl');
   const [loading] = useState(false);
   const defaultValues = {
     email: 'demo@gmail.com'
@@ -32,6 +32,8 @@ export default function UserAuthForm() {
     resolver: zodResolver(userFormSchema),
     defaultValues
   });
+
+  const callbackUrl = searchParams.get('callbackUrl');
 
   const onSubmit = async (data: UserFormValue) => {
     signIn('credentials', {
