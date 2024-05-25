@@ -20,16 +20,16 @@ import {
 import { Separator } from '@/components/ui/separator';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Trash } from 'lucide-react';
-import { useParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import FileUpload from '../file-upload';
 import { useToast } from '../ui/use-toast';
 
-import { formSchema } from './schema/employee';
+import { employeeFormSchema } from './schema';
 
-type ProductFormValues = z.infer<typeof formSchema>;
+type ProductFormValues = z.infer<typeof employeeFormSchema>;
 
 interface ProductFormProps {
   initialData: any | null;
@@ -40,7 +40,6 @@ export const EmployeeForm: React.FC<ProductFormProps> = ({
   initialData,
   categories
 }) => {
-  const params = useParams();
   const router = useRouter();
   const { toast } = useToast();
   const [open, setOpen] = useState(false);
@@ -58,7 +57,7 @@ export const EmployeeForm: React.FC<ProductFormProps> = ({
   };
 
   const form = useForm<ProductFormValues>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(employeeFormSchema),
     defaultValues
   });
 
@@ -84,29 +83,8 @@ export const EmployeeForm: React.FC<ProductFormProps> = ({
     }
   };
 
-  const onDelete = async () => {
-    try {
-      setLoading(true);
-      //   await axios.delete(`/api/${params.storeId}/products/${params.productId}`);
-      router.refresh();
-      router.push(`/${params.storeId}/products`);
-    } catch (error: any) {
-    } finally {
-      setLoading(false);
-      setOpen(false);
-    }
-  };
-
-  const triggerImgUrlValidation = () => form.trigger('imgUrl');
-
   return (
     <>
-      {/* <AlertModal
-        isOpen={open}
-        onClose={() => setOpen(false)}
-        onConfirm={onDelete}
-        loading={loading}
-      /> */}
       <div className="flex items-center justify-between">
         <Heading title={title} description={description} />
         {initialData && (

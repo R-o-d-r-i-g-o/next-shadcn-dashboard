@@ -17,21 +17,19 @@ import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import GoogleSignInButton from '../github-auth-button';
 
-const formSchema = z.object({
-  email: z.string().email({ message: 'Enter a valid email address' })
-});
+import { userFormSchema } from './schema';
 
-type UserFormValue = z.infer<typeof formSchema>;
+type UserFormValue = z.infer<typeof userFormSchema>;
 
 export default function UserAuthForm() {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl');
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   const defaultValues = {
     email: 'demo@gmail.com'
   };
   const form = useForm<UserFormValue>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(userFormSchema),
     defaultValues
   });
 

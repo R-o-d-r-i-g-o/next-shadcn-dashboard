@@ -2,7 +2,7 @@ import * as z from 'zod';
 
 const IMG_MAX_LIMIT = 3;
 
-const imgFormSchema = z.object({
+const imageFormSchema = z.object({
   fileName: z.string(),
   name: z.string(),
   fileSize: z.number(),
@@ -13,4 +13,4 @@ const imgFormSchema = z.object({
   url: z.string()
 });
 
-export { IMG_MAX_LIMIT, imgFormSchema as ImgSchema };
+export { IMG_MAX_LIMIT, imageFormSchema };
