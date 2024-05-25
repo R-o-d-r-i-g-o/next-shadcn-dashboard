@@ -25,7 +25,7 @@ export function DashboardNav({
   items,
   setOpen,
   isMobileNav = false
-}: DashboardNavProps) {
+}: Readonly<DashboardNavProps>) {
   const path = usePathname();
   const { isMinimized } = useSidebar();
 

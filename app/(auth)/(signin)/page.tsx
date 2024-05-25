@@ -41,11 +41,11 @@ export default function AuthenticationPage() {
         <div className="relative z-20 mt-auto">
           <blockquote className="space-y-2">
             <p className="text-lg">
-              &ldquo;This library has saved me countless hours of work and
-              helped me deliver stunning designs to my clients faster than ever
-              before.&rdquo;
+              &ldquo;Hello! <br /> Feel free to explore and test all the
+              features of the platform. Your feedback is invaluable, so please
+              let me know any areas for improvement you find.&rdquo;
             </p>
-            <footer className="text-sm">Sofia Davis</footer>
+            <footer className="text-sm">Thank you!</footer>
           </blockquote>
         </div>
       </div>

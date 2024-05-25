@@ -1,4 +1,5 @@
 'use client';
+
 import { OurFileRouter } from '@/app/api/uploadthing/core';
 import { UploadDropzone } from '@uploadthing/react';
 import { Trash } from 'lucide-react';
@@ -68,11 +69,9 @@ export default function FileUpload({
               allowedContent({ isUploading }) {
                 if (isUploading)
                   return (
-                    <>
-                      <p className="mt-2 animate-pulse text-sm text-slate-400">
-                        Img Uploading...
-                      </p>
-                    </>
+                    <p className="mt-2 animate-pulse text-sm text-slate-400">
+                      Img Uploading...
+                    </p>
                   );
               }
             }}
