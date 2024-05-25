@@ -2,11 +2,12 @@ FROM node:20.10-alpine AS build
 
 WORKDIR /app
 
+COPY . .
+
 RUN npm i -g pnpm \
     pnpm install  \
     pnpm build
 
-COPY . .
 
 FROM node:20.10-alpine AS publish
 
