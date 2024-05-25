@@ -7,7 +7,7 @@
 <div align="center">Built with the Next.js App Router</div>
 <br />
 <div align="center">
-<a href="https://next-shadcn-dashboard-starter.vercel.app">View Demo</a>
+<a href="https://next-shadcn-dashboard-iota.vercel.app/">View Demo</a>
 <span>
 </div>
 
@@ -27,32 +27,44 @@ This is a starter template using the following stack:
 - Forms - [React Hook Form](https://ui.shadcn.com/docs/components/form)
 - Linting - [ESLint](https://eslint.org)
 - Formatting - [Prettier](https://prettier.io)
+- Cypress - [Cypress](https://www.cypress.io/)
+- Husky - [Husky](https://typicode.github.io/husky/)
 
-_If you are looking for a React admin dashboard starter, here is the [repo](https://github.com/Kiranism/react-shadcn-dashboard-starter)._
+_If you are looking for a React admin dashboard starter, here is the [repo](https://github.com/R-o-d-r-i-g-o/next-shadcn-dashboard)._
 
 ## Pages
 
-| Pages                                                                             | Specifications                                                                                        |
-| :-------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------- |
-| [Signup](https://next-shadcn-dashboard-starter.vercel.app/)                       | Authentication with **NextAuth** supports Social logins and email logins(Enter dummy email for demo). |
-| [Dashboard](https://next-shadcn-dashboard-starter.vercel.app/dashboard)           | Cards with recharts graphs for analytics.                                                             |
-| [Users](https://next-shadcn-dashboard-starter.vercel.app/dashboard/user)          | Tanstack tables with user details client side searching, pagination etc                               |
-| [Users/new](https://next-shadcn-dashboard-starter.vercel.app/dashboard/user/new)  | A User Form with Uploadthing to support file uploading with dropzone.                                 |
-| [Employee](https://next-shadcn-dashboard-starter.vercel.app/dashboard/employee)   | Tanstack tables with server side searching, pagination etc).                                          |
-| [Profile](https://next-shadcn-dashboard-starter.vercel.app/dashboard/profile)     | Mutistep dynamic forms using react-hook-form and zod for form validation.                             |
-| [Kanban Board](https://next-shadcn-dashboard-starter.vercel.app/dashboard/kanban) | A Drag n Drop task management board with dnd-kit and zustand to persist state locally.                |
-| [Not Found](https://next-shadcn-dashboard-starter.vercel.app/dashboard/notfound)  | Not Found Page Added in the root level                                                                |
-| -                                                                                 | -                                                                                                     |
+| Pages                                                                          | Specifications                                                                                        |
+| :----------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------- |
+| [Signup](https://next-shadcn-dashboard-iota.vercel.app/)                       | Authentication with **NextAuth** supports Social logins and email logins(Enter dummy email for demo). |
+| [Dashboard](https://next-shadcn-dashboard-iota.vercel.app/dashboard)           | Cards with recharts graphs for analytics.                                                             |
+| [Users](https://next-shadcn-dashboard-iota.vercel.app/dashboard/user)          | Tanstack tables with user details client side searching, pagination etc                               |
+| [Users/new](https://next-shadcn-dashboard-iota.vercel.app/dashboard/user/new)  | A User Form with Uploadthing to support file uploading with dropzone.                                 |
+| [Employee](https://next-shadcn-dashboard-iota.vercel.app/dashboard/employee)   | Tanstack tables with server side searching, pagination etc).                                          |
+| [Profile](https://next-shadcn-dashboard-iota.vercel.app/dashboard/profile)     | Mutistep dynamic forms using react-hook-form and zod for form validation.                             |
+| [Kanban Board](https://next-shadcn-dashboard-iota.vercel.app/dashboard/kanban) | A Drag n Drop task management board with dnd-kit and zustand to persist state locally.                |
+| [Not Found](https://next-shadcn-dashboard-iota.vercel.app/dashboard/notfound)  | Not Found Page Added in the root level                                                                |
+| -                                                                              | -                                                                                                     |
 
 ## Getting Started
 
 Follow these steps to clone the repository and start the development server:
 
-- `git clone https://github.com/Kiranism/next-shadcn-dashboard-starter.git`
+- `git clone https://github.com/R-o-d-r-i-g-o/next-shadcn-dashboard.git`
 - `npm install`
 - Create a `.env.local` file by copying the example environment file:
-  `cp env.example.txt .env.local`
+  `cp env.example .env.local`
 - Add the required environment variables to the `.env.local` file.
 - `npm run dev`
 
-You should now be able to access the application at http://localhost:3000.
+You should now be able to access the application at `http://localhost:3000`.
+
+## Preview Pages
+
+![image](https://github.com/R-o-d-r-i-g-o/next-shadcn-dashboard/assets/89111957/b0bbbd87-f02b-4e9d-99d8-cf0ca4a0c73f)
+
+![image](https://github.com/R-o-d-r-i-g-o/next-shadcn-dashboard/assets/89111957/a23256d5-a70b-4fa7-8b82-87a50e0759ab)
+
+![image](https://github.com/R-o-d-r-i-g-o/next-shadcn-dashboard/assets/89111957/1004b5df-e449-4cb5-ad47-6e6ed84a2407)
+
+
