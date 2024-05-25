@@ -26,31 +26,8 @@ import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import FileUpload from '../file-upload';
 import { useToast } from '../ui/use-toast';
-const ImgSchema = z.object({
-  fileName: z.string(),
-  name: z.string(),
-  fileSize: z.number(),
-  size: z.number(),
-  fileKey: z.string(),
-  key: z.string(),
-  fileUrl: z.string(),
-  url: z.string()
-});
-export const IMG_MAX_LIMIT = 3;
-const formSchema = z.object({
-  name: z
-    .string()
-    .min(3, { message: 'Product Name must be at least 3 characters' }),
-  imgUrl: z
-    .array(ImgSchema)
-    .max(IMG_MAX_LIMIT, { message: 'You can only add up to 3 images' })
-    .min(1, { message: 'At least one image must be added.' }),
-  description: z
-    .string()
-    .min(3, { message: 'Product description must be at least 3 characters' }),
-  price: z.coerce.number(),
-  category: z.string().min(1, { message: 'Please select a category' })
-});
+
+import { formSchema } from './schema/employee';
 
 type ProductFormValues = z.infer<typeof formSchema>;
 
@@ -70,18 +47,15 @@ export const EmployeeForm: React.FC<ProductFormProps> = ({
   const [loading, setLoading] = useState(false);
   const title = initialData ? 'Edit product' : 'Create product';
   const description = initialData ? 'Edit a product.' : 'Add a new product';
-  const toastMessage = initialData ? 'Product updated.' : 'Product created.';
   const action = initialData ? 'Save changes' : 'Create';
 
-  const defaultValues = initialData
-    ? initialData
-    : {
-        name: '',
-        description: '',
-        price: 0,
-        imgUrl: [],
-        category: ''
-      };
+  const defaultValues = initialData || {
+    name: '',
+    description: '',
+    price: 0,
+    imgUrl: [],
+    category: ''
+  };
 
   const form = useForm<ProductFormValues>({
     resolver: zodResolver(formSchema),
@@ -91,14 +65,9 @@ export const EmployeeForm: React.FC<ProductFormProps> = ({
   const onSubmit = async (data: ProductFormValues) => {
     try {
       setLoading(true);
-      if (initialData) {
-        // await axios.post(`/api/products/edit-product/${initialData._id}`, data);
-      } else {
-        // const res = await axios.post(`/api/products/create-product`, data);
-        // console.log("product", res);
-      }
       router.refresh();
       router.push(`/dashboard/products`);
+
       toast({
         variant: 'destructive',
         title: 'Uh oh! Something went wrong.',
