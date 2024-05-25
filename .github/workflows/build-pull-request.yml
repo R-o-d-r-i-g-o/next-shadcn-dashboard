@@ -5,32 +5,30 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Docker build command
-        run: |
-          docker build -t my-sample-build .
-          docker images
+  # build:
+  #   name: Build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+  #     - name: Docker build command
+  #       run: |
+  #         docker build -t my-sample-build .
+  #         docker images
 
   chrome:
     runs-on: ubuntu-22.04
     name: E2E on Chrome
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20.10.0'
-
       - name: Install pnpm & deps
         run: |
           npm install -g pnpm
           pnpm install
-
       - uses: cypress-io/github-action@v6
         with:
           start: pnpm dev
